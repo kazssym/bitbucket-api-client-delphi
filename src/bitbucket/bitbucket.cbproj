@@ -138,6 +138,10 @@
         <CppCompile Include="bitbucket.cpp">
             <BuildOrder>0</BuildOrder>
         </CppCompile>
+        <CppCompile Include="BitbucketAPI.cpp">
+            <DependentOn>BitbucketAPI.h</DependentOn>
+            <BuildOrder>1</BuildOrder>
+        </CppCompile>
         <PCHCompile Include="bitbucketPCH1.h">
             <BuildOrder>2</BuildOrder>
             <PCH>true</PCH>

@@ -1,0 +1,18 @@
+# Output directories.
+/Debug/
+/Release/
+
+# RAD Studio intermediate files.
+\.res$
+
+# RAD Studio transient files
+^LibrarySupport/
+\.tvsconfig$
+\.local$
+\.dsk$
+
+# Backup and garbage files
+~$
+\.~[^/]+$
+\.orig$
+\.rej$

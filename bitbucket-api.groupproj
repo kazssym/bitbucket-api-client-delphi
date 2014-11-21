@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{AEFF1AB7-28F7-4048-B858-177642F60120}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="src\bitbucketclient\bitbucket.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="bitbucket">
+        <MSBuild Projects="src\bitbucketclient\bitbucket.cbproj"/>
+    </Target>
+    <Target Name="bitbucket:Clean">
+        <MSBuild Projects="src\bitbucketclient\bitbucket.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="bitbucket:Make">
+        <MSBuild Projects="src\bitbucketclient\bitbucket.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="bitbucket"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="bitbucket:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="bitbucket:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

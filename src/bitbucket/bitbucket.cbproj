@@ -59,7 +59,6 @@
     <PropertyGroup Condition="'$(Base)'!=''">
         <IncludePath>.\$(Platform)\$(Config);$(IncludePath)</IncludePath>
         <DCC_HppOutput>.\$(Platform)\$(Config)</DCC_HppOutput>
-        <ILINK_LinkwithSSLandCrypto>true</ILINK_LinkwithSSLandCrypto>
         <ILINK_GenerateLibFile>true</ILINK_GenerateLibFile>
         <ILINK_GenerateImportLibrary>true</ILINK_GenerateImportLibrary>
         <RuntimeOnlyPackage>true</RuntimeOnlyPackage>

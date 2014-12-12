@@ -25,8 +25,9 @@
 
 using namespace Bitbucketapi;
 
-TBitbucketClient::TBitbucketClient(TComponent *Owner) : inherited(Owner) {
+__fastcall TBitbucketClient::TBitbucketClient(TComponent *Owner)
+        : inherited(Owner) {
 }
 
-TBitbucketClient::~TBitbucketClient() {
+__fastcall TBitbucketClient::~TBitbucketClient() {
 }

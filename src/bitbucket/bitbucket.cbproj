@@ -57,18 +57,22 @@
         <Base>true</Base>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base)'!=''">
-        <IncludePath>.\$(Platform)\$(Config);$(IncludePath)</IncludePath>
-        <DCC_HppOutput>.\$(Platform)\$(Config)</DCC_HppOutput>
+        <ILINK_Description>Bitbucket API Client</ILINK_Description>
+        <DllSuffix>210</DllSuffix>
+        <ILINK_AdditionalOptions>-l..\..\$(Platform)\$(Config)</ILINK_AdditionalOptions>
+        <IncludePath>..\..\$(Platform)\$(Config);$(IncludePath)</IncludePath>
+        <DCC_HppOutput>..\..\$(Platform)\$(Config)</DCC_HppOutput>
         <ILINK_GenerateLibFile>true</ILINK_GenerateLibFile>
         <ILINK_GenerateImportLibrary>true</ILINK_GenerateImportLibrary>
         <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
         <_TCHARMapping>wchar_t</_TCHARMapping>
-        <SanitizedProjectName>bitbucket</SanitizedProjectName>
         <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
+        <SanitizedProjectName>bitbucket</SanitizedProjectName>
         <Multithreaded>true</Multithreaded>
         <ProjectType>CppPackage</ProjectType>
         <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
         <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
+        <FinalOutputDir>..\..\$(Platform)\$(Config)</FinalOutputDir>
         <BCC_wpar>false</BCC_wpar>
         <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
         <BCC_ExtendedErrorInfo>true</BCC_ExtendedErrorInfo>
@@ -122,13 +126,10 @@
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_1_Win64)'!=''">
         <VerInfo_Locale>1033</VerInfo_Locale>
-        <DllSuffix>210</DllSuffix>
-        <ILINK_Description>Bitbucket API Client</ILINK_Description>
         <VerInfo_IncludeVerInfo>true</VerInfo_IncludeVerInfo>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2)'!=''">
         <Defines>NDEBUG;$(Defines)</Defines>
-        <FinalOutputDir>..\$(Platform)\$(Config)</FinalOutputDir>
         <TASM_Debugging>None</TASM_Debugging>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_iOSDevice)'!=''">

@@ -3,7 +3,7 @@
         <ProjectGuid>{AEFF1AB7-28F7-4048-B858-177642F60120}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="src\bitbucket\bitbucket.cbproj">
+        <Projects Include="bitbucket\bitbucket.cbproj">
             <Dependencies/>
         </Projects>
     </ItemGroup>
@@ -15,13 +15,13 @@
         </BorlandProject>
     </ProjectExtensions>
     <Target Name="bitbucket">
-        <MSBuild Projects="src\bitbucket\bitbucket.cbproj"/>
+        <MSBuild Projects="bitbucket\bitbucket.cbproj"/>
     </Target>
     <Target Name="bitbucket:Clean">
-        <MSBuild Projects="src\bitbucket\bitbucket.cbproj" Targets="Clean"/>
+        <MSBuild Projects="bitbucket\bitbucket.cbproj" Targets="Clean"/>
     </Target>
     <Target Name="bitbucket:Make">
-        <MSBuild Projects="src\bitbucket\bitbucket.cbproj" Targets="Make"/>
+        <MSBuild Projects="bitbucket\bitbucket.cbproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="bitbucket"/>

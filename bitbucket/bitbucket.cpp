@@ -1,5 +1,5 @@
 /*
- * bitbucket.cpp - main code for the Bitbucket API Client package
+ * bitbucket.cpp - the Bitbucket API Client runtime package main code
  * Copyright (C) 2014 Kaz Nishimura
  *
  * This program is free software: you can redistribute it and/or modify it
@@ -23,7 +23,6 @@
 
 extern "C" int _libmain(unsigned long __reason);
 
-int _libmain(unsigned long)
-{
+int _libmain(unsigned long) {
     return 1;
 }

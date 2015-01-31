@@ -24,23 +24,9 @@ uses System.Classes, System.SysUtils;
 
 type
   {
-    Base exception for this package.
-  }
-  EBitbucketAPIException = class(Exception)
-  end;
-
-  IBitbucketAPI = interface
-    ['{00EB20C9-B842-4820-969F-4D5FFAD34DEF}']
-  end;
-
-  IBitbucketSession = interface
-    ['{48AE1846-0EA8-4DA3-9234-B3FA3190D280}']
-  end;
-
-  {
     Client credentials.
   }
-  TBitbucketClientCredentials = class(TPersistent)
+  TClientCredentials = class(TPersistent)
   private
   var
     FID: string;
@@ -51,11 +37,24 @@ type
   end;
 
   {
-    Factory object for Bitbucket sessions.
+    Base exception for this package.
+  }
+  EBitbucketAPIException = class(Exception)
+  end;
+
+  {
+    Bitbucket API client session.
+  }
+  IBitbucketSession = interface
+    ['{48AE1846-0EA8-4DA3-9234-B3FA3190D280}']
+  end;
+
+  {
+    Factory object for Bitbucket API client sessions.
   }
   IBitbucketSessionFactory = interface
     ['{AAB34981-CD69-45AC-8D19-32FE4217480D}']
-    function GetSession(ClientCredentials: TBitbucketClientCredentials)
+    function GetSession(ClientCredentials: TClientCredentials)
         : IBitbucketSession; stdcall;
   end;
 

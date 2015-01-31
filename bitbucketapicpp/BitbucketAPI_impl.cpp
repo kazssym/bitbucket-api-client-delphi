@@ -19,11 +19,11 @@
 #include <System.hpp>
 #pragma hdrstop
 
-#include "BitbucketAPI.h"
+#include "BitbucketAPI_impl.h"
 
 #pragma package(smart_init)
 
-using namespace Bitbucketapi;
+using namespace Bitbucketapi_impl;
 
 __fastcall TBitbucketClient::TBitbucketClient(TComponent *Owner)
         : inherited(Owner) {

@@ -16,12 +16,12 @@
  * this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef BitbucketAPIH
-#define BitbucketAPIH
+#ifndef BitbucketAPI_implH
+#define BitbucketAPI_implH
 
 #include <System.Classes.hpp>
 
-namespace Bitbucketapi {
+namespace Bitbucketapi_impl {
 
     class PACKAGE TBitbucketClient : public TComponent {
         typedef TComponent inherited;

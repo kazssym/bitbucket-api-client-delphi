@@ -26,10 +26,23 @@ type
   {
     Session for the Bitbucket API.
   }
-  IBitbucketSession = interface
-    ['{48AE1846-0EA8-4DA3-9234-B3FA3190D280}']
-    function GetTokenCredentials: TCredentials; stdcall;
-    property TokenCredentials: TCredentials read GetTokenCredentials;
+  TBitbucketSession = class abstract
+  private
+  var
+    {
+      OAuth 1.0 client credentials.
+    }
+    FClientCredentials: TCredentials;
+    {
+      OAuth 1.0 token credentials.
+    }
+    FTokenCredentials: TCredentials;
+  public
+    constructor Create(const ClientCredentials: TCredentials);
+    {
+      Returns the token credentials, or <code>nil</code> if not authenticated.
+    }
+    property TokenCredentials: TCredentials read FTokenCredentials;
   end;
 
   {
@@ -38,7 +51,7 @@ type
   IBitbucketSessionFactory = interface
     ['{AAB34981-CD69-45AC-8D19-32FE4217480D}']
     function GetSession(ClientCredentials: TCredentials)
-        : IBitbucketSession; stdcall;
+        : TBitbucketSession; stdcall;
   end;
 
   TBitbucketAPI = class(TComponent)
@@ -53,7 +66,7 @@ type
     constructor Create(Owner: TComponent); override;
     destructor Destroy; override;
     function GetClientCredentials: TCredentials;
-    function GetSession: IBitbucketSession;
+    function GetSession: TBitbucketSession;
   published
     property ClientCredentials: TCredentials read FClientCredentials;
   end;
@@ -64,6 +77,13 @@ type
   EBitbucketAPIException = class(Exception);
 
 implementation
+
+constructor TBitbucketSession.Create(const ClientCredentials: TCredentials);
+begin
+  inherited Create;
+  FClientCredentials := TCredentials.Create;
+  FClientCredentials.Assign(ClientCredentials);
+end;
 
 class procedure TBitbucketAPI.SetSessionFactory(SessionFactory
     : IBitbucketSessionFactory);

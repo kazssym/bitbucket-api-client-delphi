@@ -20,7 +20,7 @@ unit BitbucketAPI.Types;
 
 interface
 
-uses System.Classes, System.SysUtils;
+uses System.Classes;
 
 type
   {
@@ -36,12 +36,6 @@ type
   published
     property ID : string read FID write SetID;
     property Secret : string read FSecret write SetSecret;
-  end;
-
-  {
-    Base exception for this package.
-  }
-  EBitbucketAPIException = class(Exception)
   end;
 
   {

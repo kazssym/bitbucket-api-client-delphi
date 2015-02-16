@@ -20,7 +20,7 @@ unit BitbucketAPI;
 
 interface
 
-uses System.Classes, BitbucketAPI.Types;
+uses System.SysUtils, System.Classes, BitbucketAPI.Types;
 
 type
   TBitbucketAPI = class(TComponent)
@@ -40,6 +40,11 @@ type
     property ClientCredentials: TCredentials
         read FClientCredentials;
   end;
+
+  {
+    Base exception in this package.
+  }
+  EBitbucketAPIException = class(Exception);
 
 implementation
 

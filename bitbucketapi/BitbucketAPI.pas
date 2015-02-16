@@ -28,16 +28,16 @@ type
   class var
     FSessionFactory: IBitbucketSessionFactory;
   var
-    FClientCredentials: TClientCredentials;
+    FClientCredentials: TCredentials;
   public
     class procedure SetSessionFactory(SessionFactory
         : IBitbucketSessionFactory); static;
     constructor Create(Owner: TComponent); override;
     destructor Destroy; override;
-    function GetClientCredentials: TClientCredentials;
+    function GetClientCredentials: TCredentials;
     function GetSession: IBitbucketSession;
   published
-    property ClientCredentials: TClientCredentials
+    property ClientCredentials: TCredentials
         read FClientCredentials;
   end;
 
@@ -52,7 +52,7 @@ end;
 constructor TBitbucketAPI.Create(Owner: TComponent);
 begin
   inherited Create(Owner);
-  FClientCredentials := TClientCredentials.Create;
+  FClientCredentials := TCredentials.Create;
 end;
 
 destructor TBitbucketAPI.Destroy;

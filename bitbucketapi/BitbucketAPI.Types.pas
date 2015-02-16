@@ -24,16 +24,18 @@ uses System.Classes, System.SysUtils;
 
 type
   {
-    Client credentials.
+    Pair of an identifier and its shared secret.
   }
-  TClientCredentials = class(TPersistent)
+  TCredentials = class(TPersistent)
   private
   var
     FID: string;
-    FSecret : string;
+    FSecret: string;
+    procedure SetID(const ID: string);
+    procedure SetSecret(const Secret: string);
   published
-    property ID : string read FID write FID;
-    property Secret : string read FSecret write FSecret;
+    property ID : string read FID write SetID;
+    property Secret : string read FSecret write SetSecret;
   end;
 
   {
@@ -54,10 +56,20 @@ type
   }
   IBitbucketSessionFactory = interface
     ['{AAB34981-CD69-45AC-8D19-32FE4217480D}']
-    function GetSession(ClientCredentials: TClientCredentials)
+    function GetSession(ClientCredentials: TCredentials)
         : IBitbucketSession; stdcall;
   end;
 
 implementation
+
+procedure TCredentials.SetID(const ID: string);
+begin
+  FID := ID;
+end;
+
+procedure TCredentials.SetSecret(const Secret: string);
+begin
+  FSecret := Secret;
+end;
 
 end.

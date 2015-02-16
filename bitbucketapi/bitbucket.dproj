@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectGuid>{0D7789D1-F4AD-427A-8F2B-BC5B18E26269}</ProjectGuid>
         <ProjectVersion>16.1</ProjectVersion>
-        <MainSource>bitbucketapi.dpk</MainSource>
+        <MainSource>bitbucket.dpk</MainSource>
         <FrameworkType>None</FrameworkType>
         <AppType>Package</AppType>
         <Base>True</Base>
@@ -59,7 +59,7 @@
         <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
         <GenDll>true</GenDll>
         <GenPackage>true</GenPackage>
-        <SanitizedProjectName>bitbucketapi</SanitizedProjectName>
+        <SanitizedProjectName>bitbucket</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <VerInfo_Keys>versionCode=0</VerInfo_Keys>
@@ -109,7 +109,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">bitbucketapi.dpk</Source>
+                    <Source Name="MainSource">bitbucket.dpk</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k210.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>

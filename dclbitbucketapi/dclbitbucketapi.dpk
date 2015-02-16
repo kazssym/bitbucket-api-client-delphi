@@ -32,7 +32,7 @@ package dclbitbucketapi;
 
 requires
   rtl,
-  bitbucketapi;
+  bitbucket;
 
 contains
   BitbucketAPI.Design in 'BitbucketAPI.Design.pas';

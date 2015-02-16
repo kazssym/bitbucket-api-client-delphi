@@ -45,15 +45,6 @@ type
     ['{48AE1846-0EA8-4DA3-9234-B3FA3190D280}']
   end;
 
-  {
-    Factory object for Bitbucket API client sessions.
-  }
-  IBitbucketSessionFactory = interface
-    ['{AAB34981-CD69-45AC-8D19-32FE4217480D}']
-    function GetSession(ClientCredentials: TCredentials)
-        : IBitbucketSession; stdcall;
-  end;
-
 implementation
 
 procedure TCredentials.SetID(const ID: string);

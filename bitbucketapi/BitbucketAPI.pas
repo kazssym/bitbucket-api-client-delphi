@@ -23,6 +23,15 @@ interface
 uses System.SysUtils, System.Classes, BitbucketAPI.Types;
 
 type
+  {
+    Factory object for Bitbucket API client sessions.
+  }
+  IBitbucketSessionFactory = interface
+    ['{AAB34981-CD69-45AC-8D19-32FE4217480D}']
+    function GetSession(ClientCredentials: TCredentials)
+        : IBitbucketSession; stdcall;
+  end;
+
   TBitbucketAPI = class(TComponent)
   private
   class var

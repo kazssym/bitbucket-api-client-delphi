@@ -9,7 +9,7 @@
         <Projects Include="bitbucketapicpp\bitbucketapicpp.cbproj">
             <Dependencies>bitbucket\bitbucket.dproj</Dependencies>
         </Projects>
-        <Projects Include="dclbitbucketapi\dclbitbucket.dproj">
+        <Projects Include="dclbitbucket\dclbitbucket.dproj">
             <Dependencies>bitbucket\bitbucket.dproj</Dependencies>
         </Projects>
     </ItemGroup>
@@ -39,13 +39,13 @@
         <MSBuild Projects="bitbucketapicpp\bitbucketapicpp.cbproj" Targets="Make"/>
     </Target>
     <Target Name="dclbitbucket" DependsOnTargets="bitbucket">
-        <MSBuild Projects="dclbitbucketapi\dclbitbucket.dproj"/>
+        <MSBuild Projects="dclbitbucket\dclbitbucket.dproj"/>
     </Target>
     <Target Name="dclbitbucket:Clean" DependsOnTargets="bitbucket:Clean">
-        <MSBuild Projects="dclbitbucketapi\dclbitbucket.dproj" Targets="Clean"/>
+        <MSBuild Projects="dclbitbucket\dclbitbucket.dproj" Targets="Clean"/>
     </Target>
     <Target Name="dclbitbucket:Make" DependsOnTargets="bitbucket:Make">
-        <MSBuild Projects="dclbitbucketapi\dclbitbucket.dproj" Targets="Make"/>
+        <MSBuild Projects="dclbitbucket\dclbitbucket.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
         <CallTarget Targets="bitbucket;bitbucketapicpp;dclbitbucket"/>

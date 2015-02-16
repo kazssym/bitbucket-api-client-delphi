@@ -33,6 +33,10 @@ type
     FSecret: string;
     procedure SetID(const ID: string);
     procedure SetSecret(const Secret: string);
+  public
+    constructor Create; overload;
+    constructor Create(const ID, Secret: string); overload;
+    procedure Assign(Source: TPersistent); override;
   published
     property ID : string read FID write SetID;
     property Secret : string read FSecret write SetSecret;
@@ -46,6 +50,29 @@ type
   end;
 
 implementation
+
+constructor TCredentials.Create;
+begin
+  inherited;
+end;
+
+constructor TCredentials.Create(const ID: string; const Secret: string);
+begin
+  Create;
+  FID := ID;
+  FSecret := Secret;
+end;
+
+procedure TCredentials.Assign(Source: TPersistent);
+begin
+  if Source is TCredentials then
+  begin
+    ID := TCredentials(Source).ID;
+    Secret := TCredentials(Source).Secret;
+  end
+  else
+    inherited;
+end;
 
 procedure TCredentials.SetID(const ID: string);
 begin

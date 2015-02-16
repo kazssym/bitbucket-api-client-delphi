@@ -2,7 +2,7 @@
     <PropertyGroup>
         <ProjectGuid>{ACC96DB9-1F67-4206-9FBB-CC35643A82B1}</ProjectGuid>
         <ProjectVersion>16.1</ProjectVersion>
-        <MainSource>dclbitbucketapi.dpk</MainSource>
+        <MainSource>dclbitbucket.dpk</MainSource>
         <FrameworkType>None</FrameworkType>
         <AppType>Package</AppType>
         <Base>True</Base>
@@ -40,7 +40,7 @@
         <DesignOnlyPackage>true</DesignOnlyPackage>
         <GenDll>true</GenDll>
         <GenPackage>true</GenPackage>
-        <SanitizedProjectName>dclbitbucketapi</SanitizedProjectName>
+        <SanitizedProjectName>dclbitbucket</SanitizedProjectName>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Win32)'!=''">
         <DCC_UsePackage>rtl;bitbucketapi;$(DCC_UsePackage)</DCC_UsePackage>
@@ -82,7 +82,7 @@
         <BorlandProject>
             <Delphi.Personality>
                 <Source>
-                    <Source Name="MainSource">dclbitbucketapi.dpk</Source>
+                    <Source Name="MainSource">dclbitbucket.dpk</Source>
                 </Source>
                 <Excluded_Packages>
                     <Excluded_Packages Name="$(BDSBIN)\bcboffice2k210.bpl">Embarcadero C++Builder Office 2000 Servers Package</Excluded_Packages>

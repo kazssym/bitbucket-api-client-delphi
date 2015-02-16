@@ -9,7 +9,7 @@
         <Projects Include="bitbucketapicpp\bitbucketapicpp.cbproj">
             <Dependencies>bitbucket\bitbucket.dproj</Dependencies>
         </Projects>
-        <Projects Include="dclbitbucketapi\dclbitbucketapi.dproj">
+        <Projects Include="dclbitbucketapi\dclbitbucket.dproj">
             <Dependencies>bitbucket\bitbucket.dproj</Dependencies>
         </Projects>
     </ItemGroup>
@@ -38,23 +38,23 @@
     <Target Name="bitbucketapicpp:Make" DependsOnTargets="bitbucket:Make">
         <MSBuild Projects="bitbucketapicpp\bitbucketapicpp.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="dclbitbucketapi" DependsOnTargets="bitbucket">
-        <MSBuild Projects="dclbitbucketapi\dclbitbucketapi.dproj"/>
+    <Target Name="dclbitbucket" DependsOnTargets="bitbucket">
+        <MSBuild Projects="dclbitbucketapi\dclbitbucket.dproj"/>
     </Target>
-    <Target Name="dclbitbucketapi:Clean" DependsOnTargets="bitbucket:Clean">
-        <MSBuild Projects="dclbitbucketapi\dclbitbucketapi.dproj" Targets="Clean"/>
+    <Target Name="dclbitbucket:Clean" DependsOnTargets="bitbucket:Clean">
+        <MSBuild Projects="dclbitbucketapi\dclbitbucket.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="dclbitbucketapi:Make" DependsOnTargets="bitbucket:Make">
-        <MSBuild Projects="dclbitbucketapi\dclbitbucketapi.dproj" Targets="Make"/>
+    <Target Name="dclbitbucket:Make" DependsOnTargets="bitbucket:Make">
+        <MSBuild Projects="dclbitbucketapi\dclbitbucket.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="bitbucket;bitbucketapicpp;dclbitbucketapi"/>
+        <CallTarget Targets="bitbucket;bitbucketapicpp;dclbitbucket"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="bitbucket:Clean;bitbucketapicpp:Clean;dclbitbucketapi:Clean"/>
+        <CallTarget Targets="bitbucket:Clean;bitbucketapicpp:Clean;dclbitbucket:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="bitbucket:Make;bitbucketapicpp:Make;dclbitbucketapi:Make"/>
+        <CallTarget Targets="bitbucket:Make;bitbucketapicpp:Make;dclbitbucket:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

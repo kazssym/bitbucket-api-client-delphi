@@ -24,6 +24,15 @@ uses System.SysUtils, System.Classes, BitbucketAPI.Types;
 
 type
   {
+    Session for the Bitbucket API.
+  }
+  IBitbucketSession = interface
+    ['{48AE1846-0EA8-4DA3-9234-B3FA3190D280}']
+    function GetTokenCredentials: TCredentials; stdcall;
+    property TokenCredentials: TCredentials read GetTokenCredentials;
+  end;
+
+  {
     Factory object for Bitbucket API client sessions.
   }
   IBitbucketSessionFactory = interface
@@ -46,8 +55,7 @@ type
     function GetClientCredentials: TCredentials;
     function GetSession: IBitbucketSession;
   published
-    property ClientCredentials: TCredentials
-        read FClientCredentials;
+    property ClientCredentials: TCredentials read FClientCredentials;
   end;
 
   {

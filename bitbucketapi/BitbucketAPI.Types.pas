@@ -42,13 +42,6 @@ type
     property Secret : string read FSecret write SetSecret;
   end;
 
-  {
-    Bitbucket API client session.
-  }
-  IBitbucketSession = interface
-    ['{48AE1846-0EA8-4DA3-9234-B3FA3190D280}']
-  end;
-
 implementation
 
 constructor TCredentials.Create;

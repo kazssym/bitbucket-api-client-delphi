@@ -102,7 +102,7 @@
         <TASM_Debugging>None</TASM_Debugging>
     </PropertyGroup>
     <ItemGroup>
-        <PackageImport Include="bitbucketapi.bpi">
+        <PackageImport Include="bitbucket.bpi">
             <BuildOrder>0</BuildOrder>
         </PackageImport>
         <CppCompile Include="bitbucketapicpp.cpp">

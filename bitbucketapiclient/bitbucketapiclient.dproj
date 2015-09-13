@@ -64,7 +64,6 @@
         <DllSuffix>220</DllSuffix>
         <DCC_Description>Bitbucket API Client Components (Runtime)</DCC_Description>
         <DCC_BpiOutput>..\$(Platform)\$(Config)</DCC_BpiOutput>
-        <DCC_BplOutput>..\$(Platform)\$(Config)</DCC_BplOutput>
         <DCC_ObjOutput>.\$(Platform)\$(Config)</DCC_ObjOutput>
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
         <DCC_DcpOutput>..\$(Platform)</DCC_DcpOutput>

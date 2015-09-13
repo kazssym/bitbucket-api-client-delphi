@@ -28,7 +28,7 @@ uses System.Classes, BitbucketAPI;
 
 procedure Register;
 begin
-  RegisterComponents('Bitbucket API', [TBitbucketAPI])
+  RegisterComponents('Bitbucket API Client', [TBitbucketAPIClient])
 end;
 
 end.

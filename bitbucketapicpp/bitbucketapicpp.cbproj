@@ -1,8 +1,8 @@
 ﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <ProjectGuid>{BE7ED41D-0F89-4B57-8B1C-4865AD824CC3}</ProjectGuid>
-        <ProjectVersion>16.1</ProjectVersion>
         <MainSource>bitbucketapicpp.cpp</MainSource>
+        <ProjectVersion>16.1</ProjectVersion>
         <FrameworkType>None</FrameworkType>
         <AppType>Package</AppType>
         <Base>True</Base>
@@ -57,15 +57,15 @@
         <DCC_CBuilderOutput>JPHNE</DCC_CBuilderOutput>
         <TASM_DisplaySourceLines>true</TASM_DisplaySourceLines>
         <IntermediateOutputDir>.\$(Platform)\$(Config)</IntermediateOutputDir>
-        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
-        <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
         <ILINK_GenerateLibFile>true</ILINK_GenerateLibFile>
         <ILINK_GenerateImportLibrary>true</ILINK_GenerateImportLibrary>
+        <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
+        <DCC_Namespace>System;Xml;Data;Datasnap;Web;Soap;$(DCC_Namespace)</DCC_Namespace>
         <BCC_OptimizeForSpeed>true</BCC_OptimizeForSpeed>
         <_TCHARMapping>wchar_t</_TCHARMapping>
         <Multithreaded>true</Multithreaded>
-        <ProjectType>CppPackage</ProjectType>
         <SanitizedProjectName>bitbucketapicpp</SanitizedProjectName>
+        <ProjectType>CppPackage</ProjectType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Base_Android)'!=''">
         <VerInfo_Keys>versionCode=0</VerInfo_Keys>

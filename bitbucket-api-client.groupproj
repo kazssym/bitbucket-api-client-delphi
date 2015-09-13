@@ -3,14 +3,14 @@
         <ProjectGuid>{AEFF1AB7-28F7-4048-B858-177642F60120}</ProjectGuid>
     </PropertyGroup>
     <ItemGroup>
-        <Projects Include="bitbucket\bitbucket.dproj">
+        <Projects Include="bitbucket\bitbucketapiclient.dproj">
             <Dependencies/>
         </Projects>
         <Projects Include="bitbucketapicpp\bitbucketapicpp.cbproj">
-            <Dependencies>bitbucket\bitbucket.dproj</Dependencies>
+            <Dependencies>bitbucket\bitbucketapiclient.dproj</Dependencies>
         </Projects>
         <Projects Include="dclbitbucket\dclbitbucket.dproj">
-            <Dependencies>bitbucket\bitbucket.dproj</Dependencies>
+            <Dependencies>bitbucket\bitbucketapiclient.dproj</Dependencies>
         </Projects>
     </ItemGroup>
     <ProjectExtensions>
@@ -20,41 +20,41 @@
             <Default.Personality/>
         </BorlandProject>
     </ProjectExtensions>
-    <Target Name="bitbucket">
-        <MSBuild Projects="bitbucket\bitbucket.dproj"/>
+    <Target Name="bitbucketapiclient">
+        <MSBuild Projects="bitbucket\bitbucketapiclient.dproj"/>
     </Target>
-    <Target Name="bitbucket:Clean">
-        <MSBuild Projects="bitbucket\bitbucket.dproj" Targets="Clean"/>
+    <Target Name="bitbucketapiclient:Clean">
+        <MSBuild Projects="bitbucket\bitbucketapiclient.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="bitbucket:Make">
-        <MSBuild Projects="bitbucket\bitbucket.dproj" Targets="Make"/>
+    <Target Name="bitbucketapiclient:Make">
+        <MSBuild Projects="bitbucket\bitbucketapiclient.dproj" Targets="Make"/>
     </Target>
-    <Target Name="bitbucketapicpp" DependsOnTargets="bitbucket">
+    <Target Name="bitbucketapicpp" DependsOnTargets="bitbucketapiclient">
         <MSBuild Projects="bitbucketapicpp\bitbucketapicpp.cbproj"/>
     </Target>
-    <Target Name="bitbucketapicpp:Clean" DependsOnTargets="bitbucket:Clean">
+    <Target Name="bitbucketapicpp:Clean" DependsOnTargets="bitbucketapiclient:Clean">
         <MSBuild Projects="bitbucketapicpp\bitbucketapicpp.cbproj" Targets="Clean"/>
     </Target>
-    <Target Name="bitbucketapicpp:Make" DependsOnTargets="bitbucket:Make">
+    <Target Name="bitbucketapicpp:Make" DependsOnTargets="bitbucketapiclient:Make">
         <MSBuild Projects="bitbucketapicpp\bitbucketapicpp.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="dclbitbucket" DependsOnTargets="bitbucket">
+    <Target Name="dclbitbucket" DependsOnTargets="bitbucketapiclient">
         <MSBuild Projects="dclbitbucket\dclbitbucket.dproj"/>
     </Target>
-    <Target Name="dclbitbucket:Clean" DependsOnTargets="bitbucket:Clean">
+    <Target Name="dclbitbucket:Clean" DependsOnTargets="bitbucketapiclient:Clean">
         <MSBuild Projects="dclbitbucket\dclbitbucket.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="dclbitbucket:Make" DependsOnTargets="bitbucket:Make">
+    <Target Name="dclbitbucket:Make" DependsOnTargets="bitbucketapiclient:Make">
         <MSBuild Projects="dclbitbucket\dclbitbucket.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="bitbucket;bitbucketapicpp;dclbitbucket"/>
+        <CallTarget Targets="bitbucketapiclient;bitbucketapicpp;dclbitbucket"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="bitbucket:Clean;bitbucketapicpp:Clean;dclbitbucket:Clean"/>
+        <CallTarget Targets="bitbucketapiclient:Clean;bitbucketapicpp:Clean;dclbitbucket:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="bitbucket:Make;bitbucketapicpp:Make;dclbitbucket:Make"/>
+        <CallTarget Targets="bitbucketapiclient:Make;bitbucketapicpp:Make;dclbitbucket:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -24,6 +24,21 @@ uses System.SysUtils, System.Classes, BitbucketAPI.Types;
 
 type
   {
+    Bitbucket API client component.
+  }
+  TBitbucketAPIClient = class(TComponent)
+  private
+  var
+    FUser: String;
+    FPassword: String;
+  public
+    constructor Create(Owner: TComponent);
+  published
+    property User: String read FUser write FUser;
+    property Password: String read FPassword write FPassword;
+  end;
+
+  {
     Session for the Bitbucket API.
   }
   TBitbucketSession = class abstract
@@ -77,6 +92,11 @@ type
   EBitbucketAPIException = class(Exception);
 
 implementation
+
+constructor TBitbucketAPIClient.Create(Owner: TComponent);
+begin
+  inherited;
+end;
 
 constructor TBitbucketSession.Create(const ClientCredentials: TCredentials);
 begin

@@ -44,6 +44,9 @@ type
     FPassword: String;
   public
     constructor Create(Owner: TComponent);
+    function GetService: TBitbucketAPIService; overload; virtual;
+    function GetService(const User, Password: String): TBitbucketAPIService;
+        overload; virtual;
   published
     property User: String read FUser write FUser;
     property Password: String read FPassword write FPassword;
@@ -103,6 +106,28 @@ type
   EBitbucketAPIException = class(Exception);
 
 implementation
+
+// TBitbucketAPIService
+
+function TBitbucketAPIService.GetAuthenticated: Boolean;
+begin
+  // TODO: Replace with a working code.
+  Result := False;
+end;
+
+// TBitbucketAPIClient
+
+function TBitbucketAPIClient.GetService: TBitbucketAPIService;
+begin
+  Result := GetService(FUser, FPassword);
+end;
+
+function TBitbucketAPIClient.GetService(const User, Password: String)
+    : TBitbucketAPIService;
+begin
+  // TODO: Replace with a working code.
+  Result := Nil;
+end;
 
 constructor TBitbucketAPIClient.Create(Owner: TComponent);
 begin

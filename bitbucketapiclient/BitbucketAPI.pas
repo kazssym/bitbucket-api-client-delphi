@@ -24,6 +24,17 @@ uses System.SysUtils, System.Classes, BitbucketAPI.Types;
 
 type
   {
+    Abstract Bitbucket API service.
+  }
+  TBitbucketAPIService = class abstract
+  public
+    function GetAuthenticated: Boolean; virtual;
+    function GetCurrentUser: TBitbucketUser; virtual; abstract;
+    property Authenticated: Boolean read GetAuthenticated;
+    property CurrentUser: TBitbucketUser read GetCurrentUser;
+  end;
+
+  {
     Bitbucket API client component.
   }
   TBitbucketAPIClient = class(TComponent)

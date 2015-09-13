@@ -9,6 +9,9 @@
         <Projects Include="dclbitbucketapiclient\dclbitbucketapiclient.dproj">
             <Dependencies>bitbucketapiclient\bitbucketapiclient.dproj</Dependencies>
         </Projects>
+        <Projects Include="C:\Users\Kaz\OneDrive\Documents\RAD Studio\Projects\Bitbucket\bitbucket-api-client-delphi\clienttest\clienttest.dproj">
+            <Dependencies>bitbucketapiclient\bitbucketapiclient.dproj</Dependencies>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -35,14 +38,23 @@
     <Target Name="dclbitbucketapiclient:Make" DependsOnTargets="bitbucketapiclient:Make">
         <MSBuild Projects="dclbitbucketapiclient\dclbitbucketapiclient.dproj" Targets="Make"/>
     </Target>
+    <Target Name="clienttest" DependsOnTargets="bitbucketapiclient">
+        <MSBuild Projects="C:\Users\Kaz\OneDrive\Documents\RAD Studio\Projects\Bitbucket\bitbucket-api-client-delphi\clienttest\clienttest.dproj"/>
+    </Target>
+    <Target Name="clienttest:Clean" DependsOnTargets="bitbucketapiclient:Clean">
+        <MSBuild Projects="C:\Users\Kaz\OneDrive\Documents\RAD Studio\Projects\Bitbucket\bitbucket-api-client-delphi\clienttest\clienttest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="clienttest:Make" DependsOnTargets="bitbucketapiclient:Make">
+        <MSBuild Projects="C:\Users\Kaz\OneDrive\Documents\RAD Studio\Projects\Bitbucket\bitbucket-api-client-delphi\clienttest\clienttest.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="bitbucketapiclient;dclbitbucketapiclient"/>
+        <CallTarget Targets="bitbucketapiclient;dclbitbucketapiclient;clienttest"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="bitbucketapiclient:Clean;dclbitbucketapiclient:Clean"/>
+        <CallTarget Targets="bitbucketapiclient:Clean;dclbitbucketapiclient:Clean;clienttest:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="bitbucketapiclient:Make;dclbitbucketapiclient:Make"/>
+        <CallTarget Targets="bitbucketapiclient:Make;dclbitbucketapiclient:Make;clienttest:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

@@ -9,7 +9,7 @@
         <Projects Include="bitbucketapicpp\bitbucketapicpp.cbproj">
             <Dependencies>bitbucket\bitbucketapiclient.dproj</Dependencies>
         </Projects>
-        <Projects Include="dclbitbucket\dclbitbucket.dproj">
+        <Projects Include="dclbitbucket\dclbitbucketapiclient.dproj">
             <Dependencies>bitbucket\bitbucketapiclient.dproj</Dependencies>
         </Projects>
     </ItemGroup>
@@ -38,23 +38,23 @@
     <Target Name="bitbucketapicpp:Make" DependsOnTargets="bitbucketapiclient:Make">
         <MSBuild Projects="bitbucketapicpp\bitbucketapicpp.cbproj" Targets="Make"/>
     </Target>
-    <Target Name="dclbitbucket" DependsOnTargets="bitbucketapiclient">
-        <MSBuild Projects="dclbitbucket\dclbitbucket.dproj"/>
+    <Target Name="dclbitbucketapiclient" DependsOnTargets="bitbucketapiclient">
+        <MSBuild Projects="dclbitbucket\dclbitbucketapiclient.dproj"/>
     </Target>
-    <Target Name="dclbitbucket:Clean" DependsOnTargets="bitbucketapiclient:Clean">
-        <MSBuild Projects="dclbitbucket\dclbitbucket.dproj" Targets="Clean"/>
+    <Target Name="dclbitbucketapiclient:Clean" DependsOnTargets="bitbucketapiclient:Clean">
+        <MSBuild Projects="dclbitbucket\dclbitbucketapiclient.dproj" Targets="Clean"/>
     </Target>
-    <Target Name="dclbitbucket:Make" DependsOnTargets="bitbucketapiclient:Make">
-        <MSBuild Projects="dclbitbucket\dclbitbucket.dproj" Targets="Make"/>
+    <Target Name="dclbitbucketapiclient:Make" DependsOnTargets="bitbucketapiclient:Make">
+        <MSBuild Projects="dclbitbucket\dclbitbucketapiclient.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="bitbucketapiclient;bitbucketapicpp;dclbitbucket"/>
+        <CallTarget Targets="bitbucketapiclient;bitbucketapicpp;dclbitbucketapiclient"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="bitbucketapiclient:Clean;bitbucketapicpp:Clean;dclbitbucket:Clean"/>
+        <CallTarget Targets="bitbucketapiclient:Clean;bitbucketapicpp:Clean;dclbitbucketapiclient:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="bitbucketapiclient:Make;bitbucketapicpp:Make;dclbitbucket:Make"/>
+        <CallTarget Targets="bitbucketapiclient:Make;bitbucketapicpp:Make;dclbitbucketapiclient:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>

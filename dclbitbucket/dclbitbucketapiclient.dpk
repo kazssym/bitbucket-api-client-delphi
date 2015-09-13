@@ -1,4 +1,4 @@
-package dclbitbucket;
+package dclbitbucketapiclient;
 
 {$R *.res}
 {$IFDEF IMPLICITBUILDING This IFDEF should not be used by users}
@@ -32,7 +32,7 @@ package dclbitbucket;
 
 requires
   rtl,
-  bitbucket;
+  bitbucketapiclient;
 
 contains
   BitbucketAPI.Design in 'BitbucketAPI.Design.pas';

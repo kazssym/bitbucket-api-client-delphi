@@ -29,15 +29,15 @@ type
   TOAuthCredentials = class(TPersistent)
   private
   var
-    FId: string;
-    FSecret: string;
+    FId: String;
+    FSecret: String;
   public
     constructor Create; overload;
     constructor Create(const Id, Secret: String); overload;
     procedure Assign(Source: TPersistent); override;
   published
-    property Id: string read FId write FId;
-    property Secret: string read FSecret write FSecret;
+    property Id: String read FId write FId;
+    property Secret: String read FSecret write FSecret;
   end;
 
 implementation

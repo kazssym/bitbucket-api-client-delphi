@@ -44,10 +44,12 @@ implementation
 
 constructor TOAuthCredentials.Create;
 begin
+  inherited;
 end;
 
 constructor TOAuthCredentials.Create(const Id, Secret: String);
 begin
+  inherited Create;
   FId := Id;
   FSecret := FSecret;
 end;

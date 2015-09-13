@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="o84ogf6vj1h5lgauj_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="design:view:::0qikn1ymnhji9o8hr_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="369,250,128,151" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.OAuth.@unitclass" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.OAuth.TOAuthCredentials" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="306,10,248,207" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI.FSessionFactory" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI.FClientCredentials" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI.SetSessionFactory(BitbucketAPI.IBitbucketSessionFactory)" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI.Create(System.Classes.TComponent)" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI.Destroy()" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI.GetClientCredentials()" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI.GetSession()" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI.ClientCredentials" />
+      <reference referencedUin="delphi:l_ast:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI.FSessionFactory">
+        <property name="sourceAnchor" value="306,113" />
+        <property name="targetAnchor" value="206,113" />
+        <property name="bendpoints" value="" />
+      </reference>
+    </reference>
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIService">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="241,450,201,131" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIService.GetAuthenticated()" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIService.GetCurrentUser()" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIService.Authenticated" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIService.CurrentUser" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.@unitclass">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="design:view:::y7omds377ijp9sfam_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="241,250,108,166" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.Types.TBitbucketUser" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.Types.@unitclass" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIClient">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,430,211,192" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIClient.FUser" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIClient.FPassword" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIClient.Create(System.Classes.TComponent)" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIClient.GetService()" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIClient.GetService(System.string,System.string)" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIClient.User" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIClient.Password" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.IBitbucketSessionFactory">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,73,196,81" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.IBitbucketSessionFactory.GetSession(BitbucketAPI.Types.TCredentials)" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.TBitbucketSession">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,250,194,133" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.TBitbucketSession.FClientCredentials" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.TBitbucketSession.FTokenCredentials" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.TBitbucketSession.Create(BitbucketAPI.Types.TCredentials)" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.TBitbucketSession.TokenCredentials" />
+    </reference>
+  </view>
+</nodeSet>

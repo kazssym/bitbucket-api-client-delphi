@@ -135,6 +135,14 @@
         <DCCReference Include="BitbucketAPI.pas"/>
         <DCCReference Include="BitbucketAPI.Types.pas"/>
         <DCCReference Include="BitbucketAPI.OAuth.pas"/>
+        <None Include="ModelSupport_bitbucketapiclient\default.txaPackage"/>
+        <None Include="ModelSupport_bitbucketapiclient\default.txvpck"/>
+        <None Include="ModelSupport_bitbucketapiclient\BitbucketAPI\default.txvpck"/>
+        <None Include="ModelSupport_bitbucketapiclient\BitbucketAPI\OAuth\default.txvpck"/>
+        <None Include="ModelSupport_bitbucketapiclient\BitbucketAPI\Types\default.txvpck"/>
+        <None Include="ModelSupport_bitbucketapiclient\BitbucketAPI\default.txaPackage"/>
+        <None Include="ModelSupport_bitbucketapiclient\BitbucketAPI\OAuth\default.txaPackage"/>
+        <None Include="ModelSupport_bitbucketapiclient\BitbucketAPI\Types\default.txaPackage"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
@@ -548,6 +556,7 @@
                 <Platform value="Win32">True</Platform>
                 <Platform value="Win64">True</Platform>
             </Platforms>
+            <ModelSupport>True</ModelSupport>
         </BorlandProject>
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>

@@ -24,6 +24,22 @@ uses System.Classes;
 
 type
   {
+    Bitbucket user.
+  }
+  TBitbucketUser = class
+  private
+  var
+    FUUID: TGUID;
+    FName: String;
+    FDisplayName: String;
+    // TODO: Add more fields.
+  public
+    property UUID: TGUID read FUUID write FUUID;
+    property Name: String read FName write FName;
+    property DisplayName: String read FDisplayName write FDisplayName;
+  end;
+
+  {
     Pair of an identifier and its shared secret.
   }
   TCredentials = class(TPersistent)

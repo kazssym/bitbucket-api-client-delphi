@@ -43,7 +43,7 @@ type
     FUser: String;
     FPassword: String;
   public
-    constructor Create(Owner: TComponent);
+    constructor Create(Owner: TComponent); override;
     function GetService: TBitbucketAPIService; overload; virtual;
     function GetService(const User, Password: String): TBitbucketAPIService;
         overload; virtual;

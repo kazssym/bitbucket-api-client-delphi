@@ -26,7 +26,7 @@ type
   {
     Pair of an identifier and a secret for OAuth authorization.
   }
-  TOAuthCredentials = class(TPersistent)
+  TBitbucketAPIOAuthCredentials = class(TPersistent)
   private
   var
     FId: String;
@@ -42,24 +42,24 @@ type
 
 implementation
 
-constructor TOAuthCredentials.Create;
+constructor TBitbucketAPIOAuthCredentials.Create;
 begin
   inherited;
 end;
 
-constructor TOAuthCredentials.Create(const Id, Secret: String);
+constructor TBitbucketAPIOAuthCredentials.Create(const Id, Secret: String);
 begin
   inherited Create;
   FId := Id;
   FSecret := FSecret;
 end;
 
-procedure TOAuthCredentials.Assign(Source: TPersistent);
+procedure TBitbucketAPIOAuthCredentials.Assign(Source: TPersistent);
 begin
-  if Source is TOAuthCredentials then
+  if Source is TBitbucketAPIOAuthCredentials then
   begin
-    FId := TOAuthCredentials(Source).FId;
-    FSecret := TOAuthCredentials(Source).FSecret;
+    FId := TBitbucketAPIOAuthCredentials(Source).FId;
+    FSecret := TBitbucketAPIOAuthCredentials(Source).FSecret;
   end
   else
     inherited;

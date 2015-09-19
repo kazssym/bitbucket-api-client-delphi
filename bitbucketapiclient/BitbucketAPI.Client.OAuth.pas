@@ -20,13 +20,13 @@ unit BitbucketAPI.Client.OAuth;
 
 interface
 
-uses System.Classes;
+uses System.Classes, REST.Authenticator.OAuth, BitbucketAPI.Client;
 
 type
   {
     Pair of an identifier and a secret for OAuth authorization.
   }
-  TBitbucketAPIOAuthCredentials = class(TPersistent)
+  TBitbucketOAuthCredentials = class(TPersistent)
   private
   var
     FId: String;
@@ -40,29 +40,93 @@ type
     property Secret: String read FSecret write FSecret;
   end;
 
+  {
+    Bitbucket API client with OAuth authorization.
+  }
+  TCustomBitbucketOAuthClient = class(TCustomBitbucketClient)
+  const
+    AuthorizationEndpointURI = 'https://bitbucket.org/site/oauth2/authorize';
+    ToeknEndpointURI = 'https://bitbucket.org/site/oauth2/access_token';
+  private
+  var
+    FClientCredentials: TBitbucketOAuthCredentials;
+    Authenticator: TOAuth2Authenticator;
+  public
+    constructor Create(Owner: TComponent); override;
+    destructor Destroy;
+    function AuthorizationRequestURI(
+        const RedirectionEndpointURI, State: String): String;
+    function GetService(const Code: String): TBitbucketService;
+    property ClientCredentials: TBitbucketOAuthCredentials
+        read FClientCredentials;
+  end;
+
+  TBitbucketOAuthClient = class(TCustomBitbucketOAuthClient)
+  published
+    property ClientCredentials;
+  end;
+
 implementation
 
-constructor TBitbucketAPIOAuthCredentials.Create;
+// TBitbucketOAuthCredentials
+
+constructor TBitbucketOAuthCredentials.Create;
 begin
   inherited;
 end;
 
-constructor TBitbucketAPIOAuthCredentials.Create(const Id, Secret: String);
+constructor TBitbucketOAuthCredentials.Create(const Id, Secret: String);
 begin
   inherited Create;
   FId := Id;
   FSecret := FSecret;
 end;
 
-procedure TBitbucketAPIOAuthCredentials.Assign(Source: TPersistent);
+procedure TBitbucketOAuthCredentials.Assign(Source: TPersistent);
 begin
-  if Source is TBitbucketAPIOAuthCredentials then
+  if Source is TBitbucketOAuthCredentials then
   begin
-    FId := TBitbucketAPIOAuthCredentials(Source).FId;
-    FSecret := TBitbucketAPIOAuthCredentials(Source).FSecret;
+    FId := TBitbucketOAuthCredentials(Source).FId;
+    FSecret := TBitbucketOAuthCredentials(Source).FSecret;
   end
   else
     inherited;
+end;
+
+// TCustomBitbucketOAuthClient
+
+constructor TCustomBitbucketOAuthClient.Create(Owner: TComponent);
+begin
+  inherited;
+  FClientCredentials := TBitbucketOAuthCredentials.Create;
+  Authenticator := TOAuth2Authenticator(Self);
+end;
+
+destructor TCustomBitbucketOAuthClient.Destroy;
+begin
+  FClientCredentials.Free;
+end;
+
+function TCustomBitbucketOAuthClient.AuthorizationRequestURI(
+    const RedirectionEndpointURI, State: String): String;
+begin
+  Authenticator.ResetToDefaults;
+  Authenticator.AuthorizationEndpoint := AuthorizationEndpointURI;
+  Authenticator.ResponseType := TOAuth2ResponseType.rtCODE;
+  Authenticator.ClientID := FClientCredentials.Id;
+  Authenticator.ClientSecret := FClientCredentials.Secret;
+  Authenticator.RedirectionEndpoint := RedirectionEndpointURI;
+  // The value of State is not used.
+  Result := Authenticator.AuthorizationRequestURI;
+end;
+
+function TCustomBitbucketOAuthClient.GetService(const Code: String)
+    : TBitbucketService;
+begin
+  Authenticator.AuthCode := Code;
+  Authenticator.ChangeAuthCodeToAccesToken;
+  // TODO: Implement this function.
+  Result := Nil;
 end;
 
 end.

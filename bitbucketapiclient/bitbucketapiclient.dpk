@@ -31,7 +31,10 @@ package bitbucketapiclient;
 {$IMPLICITBUILD ON}
 
 requires
-  rtl;
+  rtl,
+  CustomIPTransport,
+  bindengine,
+  bindcomp;
 
 contains
   BitbucketAPI in 'BitbucketAPI.pas',

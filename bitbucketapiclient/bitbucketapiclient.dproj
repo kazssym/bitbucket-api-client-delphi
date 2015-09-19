@@ -204,6 +204,9 @@
             <MainSource>MainSource</MainSource>
         </DelphiCompile>
         <DCCReference Include="rtl.dcp"/>
+        <DCCReference Include="CustomIPTransport.dcp"/>
+        <DCCReference Include="bindengine.dcp"/>
+        <DCCReference Include="bindcomp.dcp"/>
         <DCCReference Include="BitbucketAPI.pas"/>
         <DCCReference Include="BitbucketAPI.Types.pas"/>
         <DCCReference Include="BitbucketAPI.Client.OAuth.pas"/>

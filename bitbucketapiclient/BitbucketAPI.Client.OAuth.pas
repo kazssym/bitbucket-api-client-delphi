@@ -53,7 +53,7 @@ type
     Authenticator: TOAuth2Authenticator;
   public
     constructor Create(Owner: TComponent); override;
-    destructor Destroy;
+    destructor Destroy; override;
     function AuthorizationRequestURI(
         const RedirectionEndpointURI, State: String): String;
     function GetService(const Code: String): TBitbucketService;

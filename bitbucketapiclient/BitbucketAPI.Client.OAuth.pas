@@ -41,7 +41,7 @@ type
   end;
 
   {
-    Bitbucket API client with OAuth authorization.
+    Custom Bitbucket API client component with OAuth authorization.
   }
   TCustomBitbucketOAuthClient = class(TCustomBitbucketClient)
   const
@@ -61,6 +61,9 @@ type
         read FClientCredentials;
   end;
 
+  {
+    Published Bitbucket API client component with OAuth authorization.
+  }
   TBitbucketOAuthClient = class(TCustomBitbucketOAuthClient)
   published
     property ClientCredentials;

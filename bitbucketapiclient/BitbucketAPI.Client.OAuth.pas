@@ -55,7 +55,8 @@ type
     constructor Create(Owner: TComponent); override;
     destructor Destroy; override;
     function AuthorizationRequestURI(
-        const RedirectionEndpointURI, State: String): String;
+        const RedirectionEndpointURI: String = '';
+        const State: String = ''): String;
     function GetService(const Code: String): TBitbucketService;
     property ClientCredentials: TBitbucketOAuthCredentials
         read FClientCredentials;

@@ -24,11 +24,11 @@ procedure Register;
 
 implementation
 
-uses System.Classes, BitbucketAPI;
+uses System.Classes, BitbucketAPI.Client;
 
 procedure Register;
 begin
-  RegisterComponents('Bitbucket API Client', [TBitbucketAPIClient])
+  RegisterComponents('Bitbucket API Client', [TBitbucketClient])
 end;
 
 end.

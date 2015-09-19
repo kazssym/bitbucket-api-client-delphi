@@ -36,7 +36,8 @@ requires
 contains
   BitbucketAPI in 'BitbucketAPI.pas',
   BitbucketAPI.Types in 'BitbucketAPI.Types.pas',
-  BitbucketAPI.OAuth in 'BitbucketAPI.OAuth.pas';
+  BitbucketAPI.OAuth in 'BitbucketAPI.OAuth.pas',
+  BitbucketAPI.Client in 'BitbucketAPI.Client.pas';
 
 end.
 

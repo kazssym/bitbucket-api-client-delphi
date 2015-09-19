@@ -23,34 +23,6 @@ interface
 uses System.SysUtils, System.Classes, BitbucketAPI.Types;
 
 type
-  {
-    Abstract Bitbucket API service.
-  }
-  TBitbucketAPIService = class abstract
-  public
-    function GetAuthenticated: Boolean; virtual;
-    function GetCurrentUser: TBitbucketUser; virtual; abstract;
-    property Authenticated: Boolean read GetAuthenticated;
-    property CurrentUser: TBitbucketUser read GetCurrentUser;
-  end;
-
-  {
-    Bitbucket API client component.
-  }
-  TBitbucketAPIClient = class(TComponent)
-  private
-  var
-    FUser: String;
-    FPassword: String;
-  public
-    constructor Create(Owner: TComponent); override;
-    function GetService: TBitbucketAPIService; overload; virtual;
-    function GetService(const User, Password: String): TBitbucketAPIService;
-        overload; virtual;
-  published
-    property User: String read FUser write FUser;
-    property Password: String read FPassword write FPassword;
-  end;
 
   {
     Session for the Bitbucket API.
@@ -106,33 +78,6 @@ type
   EBitbucketAPIException = class(Exception);
 
 implementation
-
-// TBitbucketAPIService
-
-function TBitbucketAPIService.GetAuthenticated: Boolean;
-begin
-  // TODO: Replace with a working code.
-  Result := False;
-end;
-
-// TBitbucketAPIClient
-
-function TBitbucketAPIClient.GetService: TBitbucketAPIService;
-begin
-  Result := GetService(FUser, FPassword);
-end;
-
-function TBitbucketAPIClient.GetService(const User, Password: String)
-    : TBitbucketAPIService;
-begin
-  // TODO: Replace with a working code.
-  Result := Nil;
-end;
-
-constructor TBitbucketAPIClient.Create(Owner: TComponent);
-begin
-  inherited;
-end;
 
 constructor TBitbucketSession.Create(const ClientCredentials: TCredentials);
 begin

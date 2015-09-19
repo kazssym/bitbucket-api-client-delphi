@@ -207,6 +207,7 @@
         <DCCReference Include="BitbucketAPI.pas"/>
         <DCCReference Include="BitbucketAPI.Types.pas"/>
         <DCCReference Include="BitbucketAPI.OAuth.pas"/>
+        <DCCReference Include="BitbucketAPI.Client.pas"/>
         <None Include="ModelSupport_bitbucketapiclient\default.txaPackage"/>
         <None Include="ModelSupport_bitbucketapiclient\default.txvpck"/>
         <None Include="ModelSupport_bitbucketapiclient\BitbucketAPI\default.txvpck"/>

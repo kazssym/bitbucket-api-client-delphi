@@ -66,6 +66,8 @@ type
   }
   TBitbucketOAuthClient = class(TCustomBitbucketOAuthClient)
   published
+    property User;
+    property Password;
     property ClientCredentials;
   end;
 

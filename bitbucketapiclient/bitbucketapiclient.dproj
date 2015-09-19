@@ -206,7 +206,7 @@
         <DCCReference Include="rtl.dcp"/>
         <DCCReference Include="BitbucketAPI.pas"/>
         <DCCReference Include="BitbucketAPI.Types.pas"/>
-        <DCCReference Include="BitbucketAPI.OAuth.pas"/>
+        <DCCReference Include="BitbucketAPI.Client.OAuth.pas"/>
         <DCCReference Include="BitbucketAPI.Client.pas"/>
         <None Include="ModelSupport_bitbucketapiclient\default.txaPackage"/>
         <None Include="ModelSupport_bitbucketapiclient\default.txvpck"/>
@@ -249,42 +249,19 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
+                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
+                    <Platform Name="OSX32">
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
                 <DeployFile LocalName="$(BDS)\Redist\iossimulator\libcgunwind.1.0.dylib" Class="DependencyModule">
                     <Platform Name="iOSSimulator">
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\Win32\rtl220.fr" Configuration="Debug" Class="DependencyPackageResource">
-                    <Platform Name="Win32">
-                        <RemoteName>rtl220.fr</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\Win32\rtl220.ja" Configuration="Debug" Class="DependencyPackageResource">
-                    <Platform Name="Win32">
-                        <RemoteName>rtl220.ja</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\Win32\rtl220.bpl" Configuration="Debug" Class="DependencyPackage">
-                    <Platform Name="Win32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="C:\Users\Public\Documents\Embarcadero\Studio\16.0\Bpl\bitbucketapiclient220.bpl" Configuration="Debug" Class="ProjectOutput">
                     <Platform Name="Win32">
                         <RemoteName>bitbucketapiclient.bpl</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\Win32\rtl220.de" Configuration="Debug" Class="DependencyPackageResource">
-                    <Platform Name="Win32">
-                        <RemoteName>rtl220.de</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
-                <DeployFile LocalName="$(BDS)\Redist\osx32\libcgunwind.1.0.dylib" Class="DependencyModule">
-                    <Platform Name="OSX32">
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
@@ -616,9 +593,9 @@
                 <ProjectRoot Platform="Android" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSDevice64" Name="$(PROJECTNAME).app"/>
-                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="Win64" Name="$(PROJECTNAME)"/>
                 <ProjectRoot Platform="iOSSimulator" Name="$(PROJECTNAME).app"/>
+                <ProjectRoot Platform="OSX32" Name="$(PROJECTNAME)"/>
             </Deployment>
             <Platforms>
                 <Platform value="Android">True</Platform>

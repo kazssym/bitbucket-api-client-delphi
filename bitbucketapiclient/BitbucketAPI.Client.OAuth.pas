@@ -46,7 +46,7 @@ type
   TCustomBitbucketOAuthClient = class(TCustomBitbucketClient)
   const
     AuthorizationEndpointURI = 'https://bitbucket.org/site/oauth2/authorize';
-    ToeknEndpointURI = 'https://bitbucket.org/site/oauth2/access_token';
+    TokenEndpointURI = 'https://bitbucket.org/site/oauth2/access_token';
   private
   var
     FClientCredentials: TBitbucketOAuthCredentials;

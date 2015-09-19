@@ -1,6 +1,6 @@
 {
-  BitbucketAPI.Design - Bitbucket API Client design-time registration
-  Copyright (C) 2014-2015 Kaz Nishimura
+  BitbucketAPI.Design - Bitbucket API client design-time
+  Copyright (C) 2014-2015 Nishimura Software Studio
 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU General Public License as published by the Free
@@ -24,11 +24,12 @@ procedure Register;
 
 implementation
 
-uses System.Classes, BitbucketAPI.Client;
+uses System.Classes, BitbucketAPI.Client, BitbucketAPI.Client.OAuth;
 
 procedure Register;
 begin
-  RegisterComponents('Bitbucket API Client', [TBitbucketClient])
+  RegisterComponents(
+      'Bitbucket API Client', [TBitbucketClient, TBitbucketOAuthClient]);
 end;
 
 end.

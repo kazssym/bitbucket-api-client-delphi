@@ -129,6 +129,7 @@ end;
 function TCustomBitbucketOAuthClient.GetService(const Code: String)
     : TBitbucketService;
 begin
+  Authenticator.AccessTokenEndpoint := TokenEndpointURI;
   Authenticator.AuthCode := Code;
   Authenticator.ChangeAuthCodeToAccesToken;
   // TODO: Implement this function.

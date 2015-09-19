@@ -114,8 +114,8 @@
         <DCC_BpiOutput>..\$(Platform)\$(Config)</DCC_BpiOutput>
         <DCC_ObjOutput>.\$(Platform)\$(Config)</DCC_ObjOutput>
         <DCC_DcuOutput>.\$(Platform)\$(Config)</DCC_DcuOutput>
-        <DCC_DcpOutput>..\$(Platform)</DCC_DcpOutput>
-        <DCC_UnitSearchPath>..\$(Platform);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
+        <DCC_DcpOutput>..\$(Platform)\$(Config)</DCC_DcpOutput>
+        <DCC_UnitSearchPath>..\$(Platform)\$(Config);$(DCC_UnitSearchPath)</DCC_UnitSearchPath>
         <DCC_CBuilderOutput>All</DCC_CBuilderOutput>
         <RuntimeOnlyPackage>true</RuntimeOnlyPackage>
         <SanitizedProjectName>bitbucketapiclient</SanitizedProjectName>

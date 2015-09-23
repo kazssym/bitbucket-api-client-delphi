@@ -34,7 +34,8 @@ requires
   rtl,
   CustomIPTransport,
   bindengine,
-  bindcomp;
+  bindcomp,
+  RESTComponents;
 
 contains
   BitbucketAPI in 'BitbucketAPI.pas',

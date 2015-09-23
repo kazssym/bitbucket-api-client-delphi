@@ -77,7 +77,7 @@ end;
 function TCustomBitbucketOAuthClient.AuthorizationRequestURI(
     const RedirectionEndpointURI, State: string): string;
 begin
-  Result := nil;
+  Result := '';
   if HasClientCredentials then
   begin
     Authenticator.ResetToDefaults;

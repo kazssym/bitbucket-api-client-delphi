@@ -26,9 +26,9 @@ uses
 
 type
   {
-    Custom Bitbucket API client component with OAuth authorization.
+    Bitbucket API client component with OAuth authorization.
   }
-  TCustomBitbucketOAuthClient = class(TCustomBitbucketClient)
+  TOAuthBitbucketClient = class(TCustomBitbucketClient)
   const
     AuthorizationEndpointURI = 'https://bitbucket.org/site/oauth2/authorize';
     TokenEndpointURI = 'https://bitbucket.org/site/oauth2/access_token';
@@ -44,37 +44,29 @@ type
         const RedirectionEndpointURI: string = '';
         const State: string = ''): string;
     function GetService(const Code: string): TBitbucketService;
+  published
+    property User;
+    property Password;
     property ClientID: string read FClientID write FClientID;
     property ClientSecret: string read FClientSecret write FClientSecret;
   end;
 
-  {
-    Published Bitbucket API client component with OAuth authorization.
-  }
-  TBitbucketOAuthClient = class(TCustomBitbucketOAuthClient)
-  published
-    property User;
-    property Password;
-    property ClientID;
-    property ClientSecret;
-  end;
-
 implementation
 
-// TCustomBitbucketOAuthClient
+// TOAuthBitbucketClient
 
-constructor TCustomBitbucketOAuthClient.Create(Owner: TComponent);
+constructor TOAuthBitbucketClient.Create(Owner: TComponent);
 begin
   inherited;
   Authenticator := TOAuth2Authenticator(Self);
 end;
 
-function TCustomBitbucketOAuthClient.HasClientCredentials: Boolean;
+function TOAuthBitbucketClient.HasClientCredentials: Boolean;
 begin
   Result := not (FClientID.IsEmpty or FClientSecret.IsEmpty);
 end;
 
-function TCustomBitbucketOAuthClient.AuthorizationRequestURI(
+function TOAuthBitbucketClient.AuthorizationRequestURI(
     const RedirectionEndpointURI, State: string): string;
 begin
   Result := '';
@@ -91,7 +83,7 @@ begin
   end;
 end;
 
-function TCustomBitbucketOAuthClient.GetService(const Code: string)
+function TOAuthBitbucketClient.GetService(const Code: string)
     : TBitbucketService;
 begin
   Authenticator.AccessTokenEndpoint := TokenEndpointURI;

@@ -29,7 +29,7 @@ uses System.Classes, BitbucketAPI.Client, BitbucketAPI.Client.OAuth;
 procedure Register;
 begin
   RegisterComponents(
-      'Bitbucket API Client', [TBitbucketClient, TBitbucketOAuthClient]);
+      'Bitbucket API Client', [TBitbucketClient, TOAuthBitbucketClient]);
 end;
 
 end.

@@ -10,7 +10,8 @@ uses
   {$ENDIF }
   DUnitX.Loggers.Console,
   DUnitX.Loggers.Xml.NUnit,
-  DUnitX.TestFramework;
+  DUnitX.TestFramework,
+  BitbucketAPI.ClientTest in 'BitbucketAPI.ClientTest.pas';
 
 var
   runner : ITestRunner;

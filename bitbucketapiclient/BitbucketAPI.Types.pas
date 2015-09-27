@@ -1,6 +1,6 @@
 {
   BitbucketAPI.Types - Bitbucket API common types
-  Copyright (C) 2014-2015 Kaz Nishimura
+  Copyright (C) 2014-2015 Nishimura Software Studio
 
   This program is free software: you can redistribute it and/or modify it
   under the terms of the GNU General Public License as published by the Free
@@ -20,61 +20,103 @@ unit BitbucketAPI.Types;
 
 interface
 
-uses System.Classes;
+uses System.SysUtils, System.JSON;
 
 type
   {
-    Pair of an identifier and its shared secret.
+    Superclass of Bitbucket entities.
   }
-  TCredentials = class(TPersistent)
+  TBitbucketEntity = class abstract
+  const
+    TypeKey = 'type';
   private
   var
-    FID: string;
-    FSecret: string;
-    procedure SetID(const ID: string);
-    procedure SetSecret(const Secret: string);
+    FEntityType: String;
+  protected
+    constructor Create(const EntityType: String); overload;
+    constructor Create(const JSONObject: TJSONObject); overload;
+  public
+    property EntityType: String read FEntityType;
+  end;
+
+  {
+    Bitbucket user.
+  }
+  TBitbucketUser = class(TBitbucketEntity)
+  const
+    UserType = 'user';
+  private
+  var
+    FUUID: TGUID;
+    FName: String;
+    FDisplayName: String;
+    // TODO: Add more fields.
   public
     constructor Create; overload;
-    constructor Create(const ID, Secret: string); overload;
-    procedure Assign(Source: TPersistent); override;
-  published
-    property ID : string read FID write SetID;
-    property Secret : string read FSecret write SetSecret;
+    constructor Create(const JSONObject: TJSONObject); overload;
+    property UUID: TGUID read FUUID write FUUID;
+    property Name: String read FName write FName;
+    property DisplayName: String read FDisplayName write FDisplayName;
+  end;
+
+  TBitbucketRepository = class(TBitbucketEntity)
+  const
+    RepositoryType = 'repository';
+  private
+  var
+    FOwner: TBitbucketUser;
+  public
+    constructor Create; overload;
+    constructor Create(const JSONObject: TJSONObject); overload;
   end;
 
 implementation
 
-constructor TCredentials.Create;
+// TBitbucketEntity
+
+constructor TBitbucketEntity.Create(const EntityType: string);
+begin
+  inherited Create;
+  FEntityType := EntityType;
+end;
+
+constructor TBitbucketEntity.Create(const JSONObject: TJSONObject);
+begin
+  Create(TJSONString(JSONObject.GetValue(TypeKey)).Value);
+end;
+
+// TBitbucketUser
+
+constructor TBitbucketUser.Create;
+begin
+  inherited Create(UserType);
+end;
+
+constructor TBitbucketUser.Create(const JSONObject: TJSONObject);
 begin
   inherited;
-end;
-
-constructor TCredentials.Create(const ID: string; const Secret: string);
-begin
-  Create;
-  FID := ID;
-  FSecret := Secret;
-end;
-
-procedure TCredentials.Assign(Source: TPersistent);
-begin
-  if Source is TCredentials then
+  if EntityType <> UserType then
   begin
-    ID := TCredentials(Source).ID;
-    Secret := TCredentials(Source).Secret;
-  end
-  else
-    inherited;
+    raise EArgumentOutOfRangeException.Create(
+        'The "type" value is not ' + UserType);
+  end;
 end;
 
-procedure TCredentials.SetID(const ID: string);
+// TBitbucketRepository
+
+constructor TBitbucketRepository.Create;
 begin
-  FID := ID;
+  inherited Create(RepositoryType);
 end;
 
-procedure TCredentials.SetSecret(const Secret: string);
+constructor TBitbucketRepository.Create(const JSONObject: TJSONObject);
 begin
-  FSecret := Secret;
+  inherited;
+  if EntityType <> RepositoryType then
+  begin
+    raise EArgumentOutOfRangeException.Create(
+        'The "type" value is not ' + RepositoryType);
+  end;
 end;
 
 end.

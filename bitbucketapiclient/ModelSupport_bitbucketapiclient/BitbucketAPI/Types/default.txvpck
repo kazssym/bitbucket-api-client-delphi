@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="y7omds377ijp9sfam_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,10,139,222" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials.FID" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials.FSecret" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials.SetID(System.string)" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials.SetSecret(System.string)" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials.Create()" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials.Create(System.string,System.string)" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials.Assign(System.Classes.TPersistent)" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials.ID" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.Types.TCredentials.Secret" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.Types.TBitbucketUser">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="159,10,132,161" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.Types.TBitbucketUser.FUUID" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.Types.TBitbucketUser.FName" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.Types.TBitbucketUser.FDisplayName" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.Types.TBitbucketUser.UUID" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.Types.TBitbucketUser.Name" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.Types.TBitbucketUser.DisplayName" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.Types.@unitclass">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+  </view>
+</nodeSet>

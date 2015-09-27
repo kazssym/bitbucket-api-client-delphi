@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="yzkwsgi7vogjozavs_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="design:view:::o84ogf6vj1h5lgauj_v">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,10,163,245" />
+      <reference referencedUin="design:view:::0qikn1ymnhji9o8hr_v" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPI" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIService" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.@unitclass" />
+      <reference referencedUin="design:view:::y7omds377ijp9sfam_v" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.TBitbucketAPIClient" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.IBitbucketSessionFactory" />
+      <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.TBitbucketSession" />
+    </reference>
+  </view>
+</nodeSet>

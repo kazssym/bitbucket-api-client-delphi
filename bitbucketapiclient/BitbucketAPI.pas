@@ -24,96 +24,10 @@ uses System.SysUtils, System.Classes, BitbucketAPI.Types;
 
 type
   {
-    Session for the Bitbucket API.
-  }
-  TBitbucketSession = class abstract
-  private
-  var
-    {
-      OAuth 1.0 client credentials.
-    }
-    FClientCredentials: TCredentials;
-    {
-      OAuth 1.0 token credentials.
-    }
-    FTokenCredentials: TCredentials;
-  public
-    constructor Create(const ClientCredentials: TCredentials);
-    {
-      Returns the token credentials, or <code>nil</code> if not authenticated.
-    }
-    property TokenCredentials: TCredentials read FTokenCredentials;
-  end;
-
-  {
-    Factory object for Bitbucket API client sessions.
-  }
-  IBitbucketSessionFactory = interface
-    ['{AAB34981-CD69-45AC-8D19-32FE4217480D}']
-    function GetSession(ClientCredentials: TCredentials)
-        : TBitbucketSession; stdcall;
-  end;
-
-  TBitbucketAPI = class(TComponent)
-  private
-  class var
-    FSessionFactory: IBitbucketSessionFactory;
-  var
-    FClientCredentials: TCredentials;
-  public
-    class procedure SetSessionFactory(SessionFactory
-        : IBitbucketSessionFactory); static;
-    constructor Create(Owner: TComponent); override;
-    destructor Destroy; override;
-    function GetClientCredentials: TCredentials;
-    function GetSession: TBitbucketSession;
-  published
-    property ClientCredentials: TCredentials read FClientCredentials;
-  end;
-
-  {
     Base exception in this package.
   }
   EBitbucketAPIException = class(Exception);
 
 implementation
-
-constructor TBitbucketSession.Create(const ClientCredentials: TCredentials);
-begin
-  inherited Create;
-  FClientCredentials := TCredentials.Create;
-  FClientCredentials.Assign(ClientCredentials);
-end;
-
-class procedure TBitbucketAPI.SetSessionFactory(SessionFactory
-    : IBitbucketSessionFactory);
-begin
-  FSessionFactory := SessionFactory;
-end;
-
-constructor TBitbucketAPI.Create(Owner: TComponent);
-begin
-  inherited Create(Owner);
-  FClientCredentials := TCredentials.Create;
-end;
-
-destructor TBitbucketAPI.Destroy;
-begin
-  FClientCredentials.Free;
-  inherited Destroy;
-end;
-
-function TBitbucketAPI.GetClientCredentials;
-begin
-  Result := FClientCredentials;
-end;
-
-function TBitbucketAPI.GetSession;
-begin
-  if FSessionFactory <> nil then
-  begin
-    Result := FSessionFactory.GetSession(FClientCredentials);
-  end;
-end;
 
 end.

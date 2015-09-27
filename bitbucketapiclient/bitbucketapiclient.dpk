@@ -26,16 +26,22 @@ package bitbucketapiclient;
 {$DEFINE DEBUG}
 {$ENDIF IMPLICITBUILDING}
 {$DESCRIPTION 'Bitbucket API Client Components (Runtime)'}
-{$LIBSUFFIX '220'}
+{$LIBSUFFIX '230'}
 {$RUNONLY}
 {$IMPLICITBUILD ON}
 
 requires
-  rtl;
+  rtl,
+  CustomIPTransport,
+  bindengine,
+  bindcomp,
+  RESTComponents;
 
 contains
   BitbucketAPI in 'BitbucketAPI.pas',
-  BitbucketAPI.Types in 'BitbucketAPI.Types.pas';
+  BitbucketAPI.Types in 'BitbucketAPI.Types.pas',
+  BitbucketAPI.Client.OAuth in 'BitbucketAPI.Client.OAuth.pas',
+  BitbucketAPI.Client in 'BitbucketAPI.Client.pas';
 
 end.
 

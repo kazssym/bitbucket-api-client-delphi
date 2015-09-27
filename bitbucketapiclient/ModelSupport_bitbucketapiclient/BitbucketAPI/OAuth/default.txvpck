@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nodeSet version="1.0">
+  <view uin="0qikn1ymnhji9o8hr_v">
+    <property name="$defaultDiagram" value="true" />
+    <property name="$metaclass" value="Package Diagram" />
+    <property name="$name" value="default" />
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.OAuth.@unitclass">
+      <property name="$shortcutReference" value="true" />
+    </reference>
+    <reference referencedUin="delphi:e_class:src:bitbucketapiclient:BitbucketAPI.OAuth.TOAuthCredentials">
+      <property name="$shortcutReference" value="true" />
+      <property name="bounds" value="10,10,139,192" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.OAuth.TOAuthCredentials.FId" />
+      <reference referencedUin="delphi:e_field:src:bitbucketapiclient:BitbucketAPI.OAuth.TOAuthCredentials.FSecret" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.OAuth.TOAuthCredentials.Create()" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.OAuth.TOAuthCredentials.Create(System.string,System.string)" />
+      <reference referencedUin="delphi:e_method:src:bitbucketapiclient:BitbucketAPI.OAuth.TOAuthCredentials.Assign(System.Classes.TPersistent)" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.OAuth.TOAuthCredentials.Id" />
+      <reference referencedUin="delphi:e_property:src:bitbucketapiclient:BitbucketAPI.OAuth.TOAuthCredentials.Secret" />
+    </reference>
+  </view>
+</nodeSet>

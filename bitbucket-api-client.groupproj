@@ -6,6 +6,9 @@
         <Projects Include="bitbucketapiclient\bitbucketapiclient.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="clienttest\clienttest.dproj">
+            <Dependencies>bitbucketapiclient\bitbucketapiclient.dproj</Dependencies>
+        </Projects>
         <Projects Include="dclbitbucketapiclient\dclbitbucketapiclient.dproj">
             <Dependencies>bitbucketapiclient\bitbucketapiclient.dproj</Dependencies>
         </Projects>
@@ -26,6 +29,15 @@
     <Target Name="bitbucketapiclient:Make">
         <MSBuild Projects="bitbucketapiclient\bitbucketapiclient.dproj" Targets="Make"/>
     </Target>
+    <Target Name="clienttest" DependsOnTargets="bitbucketapiclient">
+        <MSBuild Projects="clienttest\clienttest.dproj"/>
+    </Target>
+    <Target Name="clienttest:Clean" DependsOnTargets="bitbucketapiclient:Clean">
+        <MSBuild Projects="clienttest\clienttest.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="clienttest:Make" DependsOnTargets="bitbucketapiclient:Make">
+        <MSBuild Projects="clienttest\clienttest.dproj" Targets="Make"/>
+    </Target>
     <Target Name="dclbitbucketapiclient" DependsOnTargets="bitbucketapiclient">
         <MSBuild Projects="dclbitbucketapiclient\dclbitbucketapiclient.dproj"/>
     </Target>
@@ -36,13 +48,13 @@
         <MSBuild Projects="dclbitbucketapiclient\dclbitbucketapiclient.dproj" Targets="Make"/>
     </Target>
     <Target Name="Build">
-        <CallTarget Targets="bitbucketapiclient;dclbitbucketapiclient"/>
+        <CallTarget Targets="bitbucketapiclient;clienttest;dclbitbucketapiclient"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="bitbucketapiclient:Clean;dclbitbucketapiclient:Clean"/>
+        <CallTarget Targets="bitbucketapiclient:Clean;clienttest:Clean;dclbitbucketapiclient:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="bitbucketapiclient:Make;dclbitbucketapiclient:Make"/>
+        <CallTarget Targets="bitbucketapiclient:Make;clienttest:Make;dclbitbucketapiclient:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
